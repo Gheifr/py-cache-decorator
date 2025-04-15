@@ -4,7 +4,7 @@ from typing import Callable
 def cache(func: Callable) -> Callable:
     cache_dict = {}
 
-    def inner(*args, **kwargs) -> None:
+    def inner(*args, **kwargs) -> int:
         cache_record_key = (args, tuple(frozenset(kwargs.items())))
         if cache_dict:
             if cache_record_key in cache_dict:
